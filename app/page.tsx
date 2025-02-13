@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { useRef, useState } from "react";
 import bgsky from "../public/images/bgsky.jpg"; // default
 
