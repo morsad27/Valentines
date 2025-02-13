@@ -60,7 +60,7 @@ export default function Home() {
 
         <div className="text">
           {/* Change the text based on state */}
-          <p>{isDating ? "Yeyyy! Knew it you would say that! now suck my dick" : "will you be my valentine?"}</p>
+          <p>{isDating ? "Yeyyy! Knew it you would say that!" : "will you be my valentine?"}</p>
         </div>
 
         <div className="button flex gap-4">
