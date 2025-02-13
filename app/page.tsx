@@ -79,6 +79,12 @@ export default function Home() {
           </button>
         </div>
       </div>
+
+
+      {/* Footer Section */}
+      <footer className="absolute bottom-4 text-black text-sm">
+        &copy; {new Date().getFullYear()} Morsadpogi | for my girl Shiela ♡
+      </footer>
     </div>
   );
 }
