@@ -38,7 +38,6 @@ export default function Home() {
       }
     }
   };
-  
 
   return (
     <div
@@ -58,21 +57,26 @@ export default function Home() {
           className="rounded-lg w-96 h-96 object-cover"
         />
 
-        <div className="text">
+        <div className="text text-center text-white">
           {/* Change the text based on state */}
-          <p>{isDating ? "Yeyyy! Knew it you would say that!" : "will you be my valentine?"}</p>
+          <p className="text-xl font-semibold">
+            {isDating ? "Yeyyy! Knew it you would say that!" : "will you be my valentine?"}
+          </p>
         </div>
 
         <div className="button flex gap-4">
           {/* Yes Button */}
-          <button onClick={handleYesClick} className="Yes">
+          <button
+            onClick={handleYesClick}
+            className="px-6 py-3 bg-pink-500 text-white rounded-md hover:bg-pink-600 transition"
+          >
             Yes
           </button>
 
-         {/* No Button: Avoids cursor on hover */}
-         <button
+          {/* No Button: Avoids cursor on hover */}
+          <button
             ref={noButtonRef}
-            className="No"
+            className="px-6 py-3 bg-gray-700 text-white rounded-md hover:bg-gray-600 transition"
             onMouseEnter={handleNoHover}
           >
             No
@@ -80,9 +84,8 @@ export default function Home() {
         </div>
       </div>
 
-
       {/* Footer Section */}
-      <footer className="absolute bottom-4 text-black text-sm">
+      <footer className="absolute bottom-4 text-white text-sm">
         &copy; {new Date().getFullYear()} Morsadpogi | for my girl Shiela ♡
       </footer>
     </div>
