@@ -1,101 +1,85 @@
+"use client";
+
 import Image from "next/image";
+import { useRef, useState } from "react";
+import bgsky from "../public/images/bgsky.jpg"; // default
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  const [isDating, setIsDating] = useState(false);
+  const noButtonRef = useRef<HTMLButtonElement>(null);
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  const handleYesClick = () => {
+    setIsDating(true);
+  };
+
+  const handleNoHover = () => {
+    if (noButtonRef.current) {
+      // Get the button's parent dimensions
+      const parentElement = noButtonRef.current.parentElement;
+      if (parentElement) {
+        const parentWidth = parentElement.clientWidth;
+        const parentHeight = parentElement.clientHeight;
+
+        // Generate random new positions within the parent element
+        const newTop = Math.random() * (parentHeight + 500); // 50 is the button's approximate height
+        const newLeft = Math.random() * (parentWidth + 1000);
+        const newnTop = Math.random() * (parentHeight + 650); // 50 is the button's approximate height
+        const newnLeft = Math.random() * (parentWidth + 1100);
+        const newmLeft = Math.random() * (parentWidth + 800);
+        const newoLeft = Math.random() * (parentWidth + 600);
+
+        // Move the button to a new random position
+        noButtonRef.current.style.position = "absolute";
+        noButtonRef.current.style.top = `${newTop}px`;
+        noButtonRef.current.style.left = `${newLeft}px`;
+        noButtonRef.current.style.top = `${newnTop}px`;
+        noButtonRef.current.style.left = `${newnLeft}px`;
+        noButtonRef.current.style.left = `${newmLeft}px`;
+        noButtonRef.current.style.left = `${newoLeft}px`;
+      }
+    }
+  };
+  
+
+  return (
+    <div
+      style={{
+        backgroundImage: `url(${bgsky.src})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        minHeight: "100vh",
+      }}
+      className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]"
+    >
+      <div className="container flex flex-col items-center gap-6">
+        {/* Change the image based on state */}
+        <img
+          src={isDating ? "/images/cinnayaygif.gif" : "/images/cinnagif.gif"}
+          alt={isDating ? "Romantic GIF" : "Cinna GIF"}
+          className="rounded-lg w-96 h-96 object-cover"
+        />
+
+        <div className="text">
+          {/* Change the text based on state */}
+          <p>{isDating ? "Yeyyy Knew it you would say that!" : "will you be my valentine?"}</p>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+
+        <div className="button flex gap-4">
+          {/* Yes Button */}
+          <button onClick={handleYesClick} className="Yes">
+            Yes
+          </button>
+
+         {/* No Button: Avoids cursor on hover */}
+         <button
+            ref={noButtonRef}
+            className="No"
+            onMouseEnter={handleNoHover}
+          >
+            No
+          </button>
+        </div>
+      </div>
     </div>
   );
 }

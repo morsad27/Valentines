@@ -9,13 +9,48 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --black: #0a0a0a;
+    --white: #ededed;
+    --red: #ff0000;
+    --green: #00ff00;
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 200px;
+}
+.text{
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 65px;
+  font-weight: bold;
+  color: white;
+  text-shadow: 0px 0px 10px var(--black);
+}
+.Yes{
+  background-color: var(--green);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.No{
+  background-color: var(--red);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.No:hover{
+  
+}
+
+img{
+  margin-top: 300px;
 }
